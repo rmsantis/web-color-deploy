@@ -84,7 +84,7 @@ spec:
   - port: 80
     targetPort: 5000
     nodePort: 30000
-  type: LoadBalancer
+  type: NodePort
 ---
 apiVersion: batch/v1
 kind: Job
