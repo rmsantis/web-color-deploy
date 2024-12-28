@@ -94,7 +94,7 @@ metadata:
     argocd.argoproj.io/sync-wave: "0"
     argocd.argoproj.io/sync-options: Replace=true
 spec:
-  ttlSecondsAfterFinished: 100
+  #ttlSecondsAfterFinished: 100
   template:
     spec:
       containers:
