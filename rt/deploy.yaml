@@ -97,7 +97,7 @@ spec:
   template:
     spec:
       containers:
-      - name: migration
+      - name: migratio
         image: fabricioveronez/aula-argo-rt-migration:v1
         env:
           - name: MONGODB_DB
