@@ -110,4 +110,6 @@ spec:
             value: mongouser
           - name: MONGODB_PASSWORD
             value: mongopwd
+          - name: TESTE
+            value: mongopwd
       restartPolicy: Never
