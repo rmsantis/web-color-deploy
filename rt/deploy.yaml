@@ -70,6 +70,8 @@ spec:
             value: mongouser
           - name: MONGODB_PASSWORD
             value: mongopwd
+          - name: TESTE2
+            value: mongopwd
 ---
 apiVersion: v1
 kind: Service
@@ -112,6 +114,8 @@ spec:
           - name: MONGODB_PASSWORD
             value: mongopwd
           - name: TESTE
+            value: mongopwd
+          - name: TESTE2
             value: mongopwd
       restartPolicy: Never
 
