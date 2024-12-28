@@ -43,9 +43,8 @@ kind: Deployment
 metadata:
   name: movies
   annotations:
-    argocd.argoproj.io/sync-wave: "1"
+    argocd.argoproj.io/sync-wave: "0"
 spec:
-  replicas: 2
   selector:
     matchLabels:
       app: movies
@@ -56,7 +55,7 @@ spec:
     spec:
       containers:
       - name: movies
-        image: fabricioveronez/aula-argo-rt:v1
+        image: fabricioveronez/rotten-potatoes:v1
         ports:
           - containerPort: 5000
         env:
@@ -70,15 +69,13 @@ spec:
             value: mongouser
           - name: MONGODB_PASSWORD
             value: mongopwd
-          - name: TESTE2
-            value: mongopwd
 ---
 apiVersion: v1
 kind: Service
 metadata:
   name: movies
   annotations:
-    argocd.argoproj.io/sync-wave: "1"
+    argocd.argoproj.io/sync-wave: "0"
 spec:
   selector:
     app: movies
@@ -87,35 +84,3 @@ spec:
     targetPort: 5000
     nodePort: 30000
   type: LoadBalancer
----
-apiVersion: batch/v1
-kind: Job
-metadata:
-  generateName: rotten-potatoes-migration-
-  annotations:
-    argocd.argoproj.io/sync-wave: "0"
-    argocd.argoproj.io/sync-options: Replace=true
-spec:
-  #ttlSecondsAfterFinished: 100
-  template:
-    spec:
-      containers:
-      - name: migration
-        image: fabricioveronez/aula-argo-rt-migration:v1
-        env:
-          - name: MONGODB_DB
-            value: admin
-          - name: MONGODB_HOST
-            value: mongodb-service  
-          - name: MONGODB_PORT
-            value: "27017"
-          - name: MONGODB_USERNAME
-            value: mongouser
-          - name: MONGODB_PASSWORD
-            value: mongopwd
-          - name: TESTE
-            value: mongopwd
-          - name: TESTE2
-            value: mongopwd
-      restartPolicy: Never
-
