@@ -94,9 +94,9 @@ metadata:
     argocd.argoproj.io/sync-wave: "0"
     argocd.argoproj.io/sync-options: Skip
 spec:
+  ttlSecondsAfterFinished: 100
   template:
     spec:
-      ttlSecondsAfterFinished: 100
       containers:
       - name: migration
         image: fabricioveronez/aula-argo-rt-migration:v1
@@ -114,3 +114,4 @@ spec:
           - name: TESTE
             value: mongopwd
       restartPolicy: Never
+
