@@ -29,4 +29,17 @@ spec:
   - port: 80
     targetPort: 80
   type: ClusterIp
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: otel
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: mysecret
+type: Opaque
+data:
+  password: <Password>
 
