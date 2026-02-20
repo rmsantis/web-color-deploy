@@ -33,7 +33,7 @@ spec:
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: otel
+  name: webcolor
 ---
 apiVersion: v1
 kind: Secret
