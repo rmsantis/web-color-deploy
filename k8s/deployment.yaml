@@ -23,7 +23,7 @@ kind: Service
 metadata:
   name: webcolor
 spec:
-  selector:
+  selector:Password
     app: webcolor
   ports:
   - port: 80
@@ -41,5 +41,5 @@ metadata:
   name: mysecret
 type: Opaque
 data:
-  password: <Password>
+  password: cGFzc3dvcmQK
 
